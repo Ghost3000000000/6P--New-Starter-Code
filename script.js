@@ -25,23 +25,61 @@ buttonShow.onclick = function() {
 
 // Button to Double Deck
 buttonDouble.onclick = function() {
-    console.log("Deck has " + cards.length + "cards.");
+    console.log("Deck has " + cards.length + " cards.");
     for (let card of cards) {
         if (cards.length !== 16) {
             cards.push(card);
-            game.insertAdjacentHTML("beforeend", "");
+            game.insertAdjacentHTML("beforeend", "<div style='background-image: url(" + card + ")' class='card'>");
+            }
         }
+    console.log("Now the deck has " + cards.length + "cards.");
+    buttonDouble.style.color = "silver";
+
+};
+
+// Button to Shuffle Cards
+ buttonShuffle.onclick = function() {
+     shuffle(cards);
+     game.innerHTML="";
+    console.log("I'm shuffling the crads!");
+     let i = 0;
+     for (let card of cards ) {
+        game.insertAdjacentHTML("beforeend", "<div style='background-image: url(" + card + ")' id='" + i + "' class='card'>");
+        i = i + 1;
     }
 };
-// Button to Shuffle Cards
 
-
+/* ---------------------------------------------------
+DON'T CHANGE THE Fisher-Yates SHUFFLE FUNCTION BELOW!
+--------------------------------------------------- */
+function shuffle(array) {
+    let currentIndex = array.length,
+        randomIndex;
+    // While there are elements to shuffle...
+    while (currentIndex > 0) {
+        // Pick a remaining element.
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex = currentIndex - 1;
+        // Swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]
+        ];
+    }
+    return array;
+}
 // Button to Flip All Cards
-
+ buttonFlip.onclick = function() {
+    let i = 0;
+    for (card of cards) {
+        document.getElementById(i).style.backgroundImage = "";
+        i = i + 1;
+    }
+    buttonFlip.style.color = "silver";
+};
 
 // Here we need a function for clicking on individual cards.
 // (It won't work until we finish writing it.)
-// (document).click(function(event) {
-//     // Get the id property of the clicked thing.
-//     let clickedId = event.target.id;
-// });
+ $(document).click(function(event) {
+// Get the id property of the clicked thing.
+//let clickedId = event.target.id;
+});
