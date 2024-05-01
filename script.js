@@ -20,9 +20,11 @@ buttonShow.onclick = function() {
             "<div style='background-image: url(" +
             card +
             ")' class='card'>");
+         let audio = document.querySelector(".audio");
+    audio.play();
     }
 };
-
+ 
 // Button to Double Deck
 buttonDouble.onclick = function() {
     console.log("Deck has " + cards.length + " cards.");
@@ -34,7 +36,8 @@ buttonDouble.onclick = function() {
         }
     console.log("Now the deck has " + cards.length + "cards.");
     buttonDouble.style.color = "silver";
-
+ let audio = document.querySelector(".audio");
+    audio.play();
 };
 
 // Button to Shuffle Cards
@@ -46,6 +49,8 @@ buttonDouble.onclick = function() {
      for (let card of cards ) {
         game.insertAdjacentHTML("beforeend", "<div style='background-image: url(" + card + ")' id='" + i + "' class='card'>");
         i = i + 1;
+          let audio = document.querySelector(".audio");
+    audio.play();
     }
 };
 
@@ -75,11 +80,16 @@ function shuffle(array) {
         i = i + 1;
     }
     buttonFlip.style.color = "silver";
+      let audio = document.querySelector(".audio");
+    audio.play();
 };
 
 // Here we need a function for clicking on individual cards.
 // (It won't work until we finish writing it.)
  $(document).click(function(event) {
 // Get the id property of the clicked thing.
-//let clickedId = event.target.id;
-});
+     let clickedId=event.target.id;
+console.log(clickedId);
+   
+}
+ );
