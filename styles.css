@@ -14,7 +14,7 @@ game {
 .card {
     display: inline-block;
     /* DO NOT CHANGE display: inline-block */
-    background-color: rgba(0, 0, 0, 0.37);
+    background-color: white;
     background-size: 80px 120px;
     width: 90px;
     height: 120px;
